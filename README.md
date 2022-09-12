@@ -1,5 +1,3 @@
-<img align="right" src="https://media.discordapp.net/attachments/751935149578387456/954859042969366569/logo512.png" height="200" width="200">  
-
 # Maze
 
 Using 
