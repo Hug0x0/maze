@@ -1,16 +1,13 @@
 import React from "react";
-import Stopwatch from "./Stopwatch";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faGear, faRefresh } from '@fortawesome/free-solid-svg-icons'
 import { finished, redoMaze, resetMaze } from "./Tool";
 import { toggleConfig } from "./Config";
 import { StarknetProvider, getInstalledInjectedConnectors } from "@starknet-react/core";
-import { Account, ButtonConnect, ButtonControl, TransactionManager } from "./Connect";
+import { Account, ButtonConnect } from "./Connect";
 
 
 const connectors = getInstalledInjectedConnectors();
 
-export function mazeRedo() {
+export const mazeRedo = () => {
     if (finished) {
         //change reset button to redo
         var redobtn = document.querySelector('#redo-reset-btn');

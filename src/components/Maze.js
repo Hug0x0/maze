@@ -1,8 +1,8 @@
 import React from "react";
 
-import { gameMaze } from ".";
+import { gameMaze } from "..";
 
-export function clearOverlays() {
+export const clearOverlays = () => {
     document.getElementById("ran-out-of-time").style.display = "none"
     document.getElementById("finished").style.display = "none"
 
@@ -12,7 +12,7 @@ export function clearOverlays() {
 }
 
 // https://stackoverflow.com/questions/15164655/generate-html-table-from-2d-javascript-array
-function makeImageTable(myArray) {
+const makeImageTable = (myArray) => {
     var result = "";
 
     for (var i = 0; i < myArray.length; i++) {
@@ -48,7 +48,7 @@ function makeImageTable(myArray) {
     return result;
 }
 
-function createMarkup(array) {
+const createMarkup = (array) => {
     return { __html: makeImageTable(array) };
 }
 
@@ -78,7 +78,7 @@ class Maze extends React.Component {
     }
 }
 
-export function updateCanvas() {
+export const updateCanvas = () => {
     const div = document.getElementById("maze-canvas");
 
     div.innerHTML = makeImageTable(gameMaze);

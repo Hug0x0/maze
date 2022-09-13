@@ -1,9 +1,8 @@
 import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCircleArrowDown, faCircleArrowLeft, faCircleArrowRight, faCircleArrowUp, faMeteor, faPersonRunning } from '@fortawesome/free-solid-svg-icons'
+import { faCircleArrowDown, faCircleArrowLeft, faCircleArrowRight, faCircleArrowUp } from '@fortawesome/free-solid-svg-icons'
 import { movePlayer } from "./Tool";
-import { defaultNumberOfPhazes, togglePhaze } from "./Phaze";
-import { defaultNumberOfQuakes, toggleQuake } from "./Quake";
+import { togglePhaze } from "../Phaze";
 import { getCookie } from "./Cookies";
 
 class Down extends React.Component {

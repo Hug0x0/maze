@@ -4,7 +4,7 @@ import { resetMaze } from "./Tool";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowDown, faArrowUp, faCircleXmark, faFloppyDisk, faKeyboard, faRotate, faRulerCombined, faStop, faStopwatch } from '@fortawesome/free-solid-svg-icons'
-import { resetTimer } from "./Stopwatch";
+import { resetTimer } from "../Stopwatch";
 
 //default values (can be changed by the config)
 export var gameTime = 15000
@@ -21,7 +21,7 @@ var changedGameObjectSize = 0;
 var changedScreenShake;
 var changedLowerButtonControls;
 
-export function toggleConfig() {
+export const toggleConfig = () => {
     var configDiv = document.getElementById('config-div');
     if (configUIOpen) { //opened
         console.log("closing config")
@@ -38,24 +38,24 @@ export function toggleConfig() {
     }
 }
 
-export function changeGameTime(int) {
+export const changeGameTime = (int) => {
     gameTime = int
 }
 
-export function changeSize(int) {
+export const changeSize = (int) => {
     size = int
 }
 
-export function changeGameObjectSize(int) {
+export const changeGameObjectSize = (int) => {
     gameObjectSize = int
     document.documentElement.style.setProperty('--gameObjectSize', gameObjectSize + "vmin");
 }
 
-export function changeScreenShake(bool) {
+export const changeScreenShake = (bool) => {
     screenShake = (bool === 'true')
 }
 
-export function changeLowerButtonControls(bool) {
+export const changeLowerButtonControls = (bool) => {
     lowerButtonControls = (bool === 'true')
 }
 
@@ -312,7 +312,7 @@ class Config extends React.Component {
     }
 }
 
-window.addEventListener('click', function (e) {
+window.addEventListener('click', (e) => {
     //check for hovering out of config div, if config ui is open, and if hovering on config button
     if (!document.getElementById("config-box").contains(e.target) && configUIOpen && !document.getElementById("right").matches(':hover')) {
         toggleConfig()

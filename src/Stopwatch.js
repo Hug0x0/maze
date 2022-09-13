@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { gameTime } from "./Config";
-import { canControl } from "./Control";
-import { numbersOfRedos } from "./Tool";
+import { canControl } from "./components/Control";
+import { numbersOfRedos } from "./components/Tool";
 
 var setRunningShared;
 var setTimeShared;

@@ -1,30 +1,30 @@
 import maze from 'amazejs';
-import { gameMaze, newMaze } from '.';
-import { shake } from './Animate';
+import { gameMaze, newMaze } from '..';
+import { shake } from '../Animate';
 import { gameTime } from './Config';
 import { canControl, controlls } from './Control';
 import { clearOverlays, updateCanvas } from './Maze';
-import { defaultNumberOfPhazes, numberOfPhazes, phazePlayer, phazeToggled, resetPhaze, togglePhaze } from './Phaze';
-import { defaultNumberOfQuakes, numberOfQuakes, quakedWalls, quakePlayer, quakeToggled, resetQuake, toggleQuake } from './Quake';
-import { currentTime, resetTimer, startTimer, stopTimer } from './Stopwatch';
+import { phazePlayer, phazeToggled, resetPhaze, togglePhaze } from '../Phaze';
+import { quakedWalls, quakePlayer, quakeToggled, resetQuake, toggleQuake } from '../Quake';
+import { currentTime, resetTimer, startTimer, stopTimer } from '../Stopwatch';
 
 export var finished = false;
 
 export var numbersOfRedos = 0;
 
-function createArray(length) {
+const createArray = (length) => {
     var arr = new Array(length || 0),
         i = length;
 
-    if (arguments.length > 1) {
-        var args = Array.prototype.slice.call(arguments, 1);
+    if (length > 1) {
+        var args = Array.prototype.slice.call(length, 1);
         while (i--) arr[length - 1 - i] = createArray.apply(this, args);
     }
 
     return arr;
 }
 
-export function createMaze(mazeSize) {
+export const createMaze = (mazeSize) => {
     //create a maze
     var m = new maze.Backtracker(mazeSize, mazeSize);
     m.generate();
@@ -61,7 +61,7 @@ export function createMaze(mazeSize) {
     return mazeArray;
 }
 
-export function replace(array, item, replacing) {
+export const replace = (array, item, replacing) => {
     //for each x and y
     for (var x = 0; x < array.length; x++) {
         for (var y = 0; y < array.length; y++) {
@@ -73,7 +73,7 @@ export function replace(array, item, replacing) {
     return array
 }
 
-export function findItem(item) {
+export const findItem = (item) => {
     //for each x and y
     for (var x = 0; x < gameMaze.length; x++) {
         for (var y = 0; y < gameMaze.length; y++) {
@@ -86,7 +86,7 @@ export function findItem(item) {
     return false;   // Not found
 }
 
-export function getPlayerPosition() {
+export const getPlayerPosition = () => {
     var attempt1 = findItem("rainbow")
     var attempt2 = findItem("start")
 
@@ -99,14 +99,14 @@ export function getPlayerPosition() {
     }
 }
 
-export function walkOverPath(playerPos, item) {
+export const walkOverPath = (playerPos, item) => {
     if (item === "path")
         gameMaze[playerPos[0]][playerPos[1]] = "space"
     else
         gameMaze[playerPos[0]][playerPos[1]] = "path"
 }
 
-export function resetMaze() {
+export const resetMaze = () => {
     numbersOfRedos = 0
     console.log("resetting maze!")
 
@@ -134,7 +134,7 @@ export function resetMaze() {
     updateCanvas()
 }
 
-export function redoMaze() {
+export const redoMaze = () => {
     numbersOfRedos++;
     console.log("redoing maze! " + numbersOfRedos)
 
@@ -168,7 +168,7 @@ export function redoMaze() {
     updateCanvas()
 }
 
-export function finishedMaze() {
+export const finishedMaze = () => {
     //stop timer
     //stopTimer()
 
@@ -204,7 +204,7 @@ export function finishedMaze() {
 
 var boolRunOnce = true;
 
-export function movePlayer(direction) {
+export const movePlayer = (direction) => {
     if (finished || !controlls)
         return console.log("Ignored movement")
 

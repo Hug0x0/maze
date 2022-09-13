@@ -4,10 +4,10 @@ import ReactDOM from 'react-dom';
 import './styles/index.css';
 import App from './App';
 
-import { createMaze } from './Tool'
-import { createControls } from './Control';
-import { changeGameObjectSize, changeGameTime, changeLowerButtonControls, changeScreenShake, changeSize, gameObjectSize, gameTime, size } from './Config';
-import { getCookie } from './Cookies';
+import { createMaze } from './components/Tool'
+import { createControls } from './components/Control';
+import { changeGameObjectSize, changeGameTime, changeLowerButtonControls, changeScreenShake, changeSize, gameObjectSize, gameTime, size } from './components/Config';
+import { getCookie } from './components/Cookies';
 export var gameMaze;
 
 //load values from cookies if there are any

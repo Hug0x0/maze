@@ -1,8 +1,8 @@
 import './styles/App.css';
-import Maze from './Maze'
-import Up from './Up';
-import Config from './Config';
-import Down from './Down';
+import Maze from './components/Maze'
+import Up from './components/Up';
+import Config from './components/Config';
+import Down from './components/Down';
 import Start from './Start';
 
 function App() {

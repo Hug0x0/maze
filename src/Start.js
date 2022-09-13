@@ -1,5 +1,5 @@
 import React from "react";
-import { getCookie, setCookie } from "./Cookies";
+import { getCookie, setCookie } from "./components/Cookies";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faXmark } from '@fortawesome/free-solid-svg-icons'

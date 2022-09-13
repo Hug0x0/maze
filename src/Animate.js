@@ -1,12 +1,12 @@
-import { getCookie } from "./Cookies";
+import { getCookie } from "./components/Cookies";
 
-function clearAnimations() {
-    return function () {
+const clearAnimations = () => {
+    return () => {
         document.getElementById('maze-canvas').style.animation = ""
     }
 }
 
-export function shake(ms, direction) {
+export const shake = (ms, direction) => {
     if (getCookie("screenShake") === "false")
         return;
 
@@ -28,7 +28,7 @@ export function shake(ms, direction) {
     setTimeout(clearAnimations(), ms);
 }
 
-export function shakeHard(ms, direction) {
+export const shakeHard = (ms, direction) => {
     if (getCookie("screenShake") === "false")
         return;
 

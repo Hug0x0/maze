@@ -1,17 +1,15 @@
 import { toggleConfig } from "./Config"
-import { togglePhaze } from "./Phaze"
-import { toggleQuake } from "./Quake"
 import { finished, movePlayer, redoMaze, resetMaze } from "./Tool"
 
 export var controlls = true
 
-export function canControl(bool) {
+export const canControl = (bool) => {
     controlls = bool
 }
-export function createControls() {
+export const createControls = () => {
 
     //keyboard controls
-    document.addEventListener('keydown', function (event) {
+    document.addEventListener('keydown', (event) => {
         if (event.key === "a" || event.key === "ArrowLeft") {
             console.log("left")
             movePlayer("left")
@@ -49,7 +47,7 @@ export function createControls() {
         }
     })
 
-    document.addEventListener('keyup', function (event) {
+    document.addEventListener('keyup', (event) => {
         if (event.key === "a" || event.key === "ArrowLeft") {
             document.getElementById("left-btn").style.filter = "brightness(100%)"
         } else if (event.key === "d" || event.key === "ArrowRight") {
@@ -79,18 +77,18 @@ export function createControls() {
 var xDown = null;
 var yDown = null;
 
-function getTouches(evt) {
+const getTouches = (evt) => {
     return evt.touches ||             // browser API
         evt.originalEvent.touches; // jQuery
 }
 
-function handleTouchStart(evt) {
+const handleTouchStart = (evt) => {
     const firstTouch = getTouches(evt)[0];
     xDown = firstTouch.clientX;
     yDown = firstTouch.clientY;
 };
 
-function handleTouchMove(evt) {
+const handleTouchMove = (evt) => {
     if (!xDown || !yDown) {
         return;
     }

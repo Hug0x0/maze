@@ -1,18 +1,18 @@
 import { useStarknet, useConnectors, useStarknetInvoke, useStarknetTransactionManager, useContract } from "@starknet-react/core";
-import GameAbi from "./abi/game.json"
+import GameAbi from "../abi/game.json"
 
 const CONTRACT_ADDRESS = "0x079e5410c391781051d2601692f7221c88b7f69d06234833db50c812fb474d8e";
 
-export function useStarkNet() {
+export const useStarkNet = () => {
   return useContract({ abi: GameAbi, address: CONTRACT_ADDRESS });
 }
 
-export function Account() {
+export const Account = () => {
   const { account } = useStarknet();
   return <div>Account: {account || "Your are not connected!!"}</div>;
 }
 
-export function ButtonConnect() {
+export const ButtonConnect = () => {
   const { connect, connectors } = useConnectors();
   return (
     <div className="row gtr-25 gtr-uniform">
@@ -29,7 +29,7 @@ export function ButtonConnect() {
   );
 }
 
-export function ButtonControl({ move }) {
+export const ButtonControl = ({ move }) => {
   const { contract } = useStarkNet();
   const { data, loading, error, reset, invoke } = useStarknetInvoke({
     contract,
@@ -45,7 +45,7 @@ export function ButtonControl({ move }) {
   );
 }
 
-function TransactionItem({ transaction, onClick }) {
+const TransactionItem = ({ transaction, onClick }) => {
   return (
     <div>
       {transaction.status}: {transaction.transactionHash} <button onClick={onClick}>remove</button>
@@ -53,7 +53,7 @@ function TransactionItem({ transaction, onClick }) {
   );
 }
 
-export function TransactionManager() {
+export const TransactionManager = () => {
   const { transactions, removeTransaction } = useStarknetTransactionManager();
   return (
     <div>
